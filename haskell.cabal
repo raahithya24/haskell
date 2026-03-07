@@ -62,23 +62,28 @@ executable haskell
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    -- other-modules:
+    other-modules:    Aggregation
+                      CSVParser
+                      ForestTypes
+                      Regions
+                      LossAggregation
+                      LossTypes
+                      WebServer
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.17.2.0,
-                      sqlite-simple,
+    build-depends:    
+                      split,
+                      scotty,
                       aeson,
-                      http-conduit,
-                      text,
-                      bytestring,
-                      scotty
+                      text
                       
 
     -- Directories containing source files.
     hs-source-dirs:   app
+    ghc-options: -threaded
 
     -- Base language which the package is written in.
     default-language: Haskell2010

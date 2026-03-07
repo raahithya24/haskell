@@ -1,21 +1,41 @@
-{-# LANGUAGE OverloadedStrings #-}
+module Main where
 
-import Database.SQLite.Simple
+import CSVParser
+import Aggregation
+import qualified Data.Map as Map
+import WebServer
 
 main :: IO ()
 main = do
-    conn <- open "test.db"
+    putStrLn "Global Deforestation Analysis"
 
-    execute_ conn
-        "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)"
+    contents <- readFile "data/treecover_extent_2000_in_plantations__ha.csv"
 
-    execute conn
-        "INSERT INTO users (name) VALUES (?)"
-        (Only ("Raahithya" :: String))
+    let records = parseCSV contents
 
-    rows <- query_ conn
-        "SELECT id, name FROM users" :: IO [(Int, String)]
+    putStrLn "Total records loaded:"
+    print (length records)
 
-    mapM_ print rows
+    putStrLn "Total Tree Cover:"
+    print (totalTreeCover records)
 
-    close conn
+    putStrLn "Total Area:"
+    print (totalArea records)
+
+    putStrLn "Average Tree Cover:"
+    print (averageTreeCover records)
+    let countryStats = treeCoverByCountry records
+
+    putStrLn "Tree cover by country (first 10):"
+    print (take 10 (Map.toList countryStats))
+
+    let regionStats = treeCoverByRegion records
+
+    putStrLn "Tree cover by region:"
+    print (Map.toList regionStats)
+    let total = totalTreeCover records
+    let countryStats = treeCoverByCountry records
+
+    putStrLn "Starting server on http://localhost:3000"
+
+    startServer total (Map.toList countryStats)
