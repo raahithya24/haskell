@@ -10,6 +10,16 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_haskell */
+/* package aeson-2.2.3.0 */
+#ifndef VERSION_aeson
+#define VERSION_aeson "2.2.3.0"
+#endif /* VERSION_aeson */
+#ifndef MIN_VERSION_aeson
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 3)
+#endif /* MIN_VERSION_aeson */
 /* package base-4.17.2.0 */
 #ifndef VERSION_base
 #define VERSION_base "4.17.2.0"
@@ -20,16 +30,46 @@
   (major1) == 4 && (major2) <  17 || \
   (major1) == 4 && (major2) == 17 && (minor) <= 2)
 #endif /* MIN_VERSION_base */
-/* package sqlite-simple-0.4.19.0 */
-#ifndef VERSION_sqlite_simple
-#define VERSION_sqlite_simple "0.4.19.0"
-#endif /* VERSION_sqlite_simple */
-#ifndef MIN_VERSION_sqlite_simple
-#define MIN_VERSION_sqlite_simple(major1,major2,minor) (\
+/* package containers-0.6.7 */
+#ifndef VERSION_containers
+#define VERSION_containers "0.6.7"
+#endif /* VERSION_containers */
+#ifndef MIN_VERSION_containers
+#define MIN_VERSION_containers(major1,major2,minor) (\
   (major1) <  0 || \
-  (major1) == 0 && (major2) <  4 || \
-  (major1) == 0 && (major2) == 4 && (minor) <= 19)
-#endif /* MIN_VERSION_sqlite_simple */
+  (major1) == 0 && (major2) <  6 || \
+  (major1) == 0 && (major2) == 6 && (minor) <= 7)
+#endif /* MIN_VERSION_containers */
+/* package scotty-0.30 */
+#ifndef VERSION_scotty
+#define VERSION_scotty "0.30"
+#endif /* VERSION_scotty */
+#ifndef MIN_VERSION_scotty
+#define MIN_VERSION_scotty(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  30 || \
+  (major1) == 0 && (major2) == 30 && (minor) <= 0)
+#endif /* MIN_VERSION_scotty */
+/* package split-0.2.5 */
+#ifndef VERSION_split
+#define VERSION_split "0.2.5"
+#endif /* VERSION_split */
+#ifndef MIN_VERSION_split
+#define MIN_VERSION_split(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 5)
+#endif /* MIN_VERSION_split */
+/* package text-2.0.2 */
+#ifndef VERSION_text
+#define VERSION_text "2.0.2"
+#endif /* VERSION_text */
+#ifndef MIN_VERSION_text
+#define MIN_VERSION_text(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  0 || \
+  (major1) == 2 && (major2) == 0 && (minor) <= 2)
+#endif /* MIN_VERSION_text */
 
 /* tool gcc-13 */
 #ifndef TOOL_VERSION_gcc
