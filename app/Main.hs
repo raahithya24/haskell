@@ -24,6 +24,7 @@ main = do
 
     putStrLn "Average Tree Cover:"
     print (averageTreeCover records)
+
     let countryStats = treeCoverByCountry records
 
     putStrLn "Tree cover by country (first 10):"
@@ -33,9 +34,7 @@ main = do
 
     putStrLn "Tree cover by region:"
     print (Map.toList regionStats)
-    let total = totalTreeCover records
-    let countryStats = treeCoverByCountry records
 
     putStrLn "Starting server on http://localhost:3000"
 
-    startServer total (Map.toList countryStats)
+    startServer
